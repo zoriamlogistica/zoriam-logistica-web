@@ -224,14 +224,14 @@ const services = [
   { title: "Almacenaje y Cross Docking", desc: "Almacenamiento seguro y distribución eficiente para tu cadena de suministro.", icon: Warehouse, image: "https://images.unsplash.com/photo-1586528116493-a029325540fa?q=80&w=1200&auto=format&fit=crop" },
 ];
 
-const clients = ["entel", "Claro", "SCHARFF", "BrightCell", "BELCORP"];
+const clients = ["entel", "Claro", "SHARF", "FLEET", "WODEN"];
 const navItems = ["Inicio", "Nosotros", "Servicios", "Cobertura", "Tecnología", "Contacto"];
 
 const stats = [
-  { value: "+12", label: "Años", sub: "De experiencia", icon: Building2 },
-  { value: "+350", label: "Rutas diarias", sub: "A nivel nacional", icon: Route },
+  { value: "+7", label: "Años", sub: "De experiencia", icon: Building2 },
+  { value: "+50", label: "Rutas diarias", sub: "A nivel nacional", icon: Route },
   { value: "+98%", label: "Entregas", sub: "A tiempo", icon: PackageCheck },
-  { value: "+120", label: "Clientes corporativos", sub: "Confían en nosotros", icon: Users },
+  { value: "+100", label: "Clientes corporativos", sub: "Confían en nosotros", icon: Users },
 ];
 
 const coverage = [
@@ -290,7 +290,7 @@ export default function ZoriamLandingPage() {
             <p className="mt-6 max-w-lg text-lg leading-8 text-white/90">Operaciones logísticas integrales con tecnología, trazabilidad y cumplimiento para empresas que no pueden detenerse.</p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <a href="https://wa.me/51941822841" target="_blank" rel="noreferrer"><Button className="w-full sm:w-auto"><MessageCircle className="h-4 w-4" /> Cotizar Ahora <ArrowRight className="h-4 w-4" /></Button></a>
-              <a href="https://wa.me/51941822841" target="_blank" rel="noreferrer"><Button variant="outline" className="w-full sm:w-auto"><MessageCircle className="h-4 w-4" /> WhatsApp 941 822 841</Button></a>
+              <a href="https://wa.me/51941822841" target="_blank" rel="noreferrer"><Button variant="outline" className="w-full sm:w-auto"><MessageCircle className="h-4 w-4" /> WhatsApp </Button></a>
             </div>
             <div className="mt-14 grid max-w-3xl grid-cols-2 gap-6 md:grid-cols-4">
               {[[ShieldCheck, "Seguridad", "Garantizada"], [MapPin, "Cobertura", "Nacional"], [BarChart3, "Trazabilidad", "en Tiempo Real"], [CheckCircle2, "Cumplimiento", "y Control"]].map(([Icon, a, b]) => (
