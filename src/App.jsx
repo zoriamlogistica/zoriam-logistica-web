@@ -243,15 +243,12 @@ const coverage = [
 
 function Logo({ compact = false }) {
   return (
-    <div className="flex items-center gap-3">
-      <div className="relative h-10 w-14 overflow-hidden rounded-full border border-white/70 bg-white/5">
-        <Truck className="absolute left-2 top-2 h-6 w-8 text-white" strokeWidth={1.8} />
-        <div className="absolute inset-x-2 bottom-2 h-px bg-white/60" />
-      </div>
-      <div className="leading-none">
-        <div className={`${compact ? "text-2xl" : "text-3xl"} font-black tracking-[0.18em] text-white`}>ZORIAM</div>
-        <div className="text-[10px] font-black tracking-[0.18em] text-red-500">LOGÍSTICA INTEGRADA</div>
-      </div>
+    <div className="flex items-center">
+      <img
+        src="/logo-zoriam.png"
+        alt="ZORIAM Logística Integrada"
+        className={compact ? "h-12 w-auto object-contain" : "h-14 w-auto object-contain"}
+      />
     </div>
   );
 }
