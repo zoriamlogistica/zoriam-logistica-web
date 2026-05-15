@@ -238,14 +238,14 @@ const services = [
   { title: "Almacenaje y Cross Docking", desc: "Almacenamiento seguro y distribución eficiente para tu cadena de suministro.", icon: Warehouse, image: "https://images.unsplash.com/photo-1586528116493-a029325540fa?q=80&w=1200&auto=format&fit=crop" },
 ];
 
-const clients = ["entel", "Claro", "SCHARFF", "BrightCell", "BELCORP"];
-const navItems = ["Inicio", "Nosotros", "Servicios", "Cobertura", "Tecnología", "Contacto"];
+const clients = ["entel", "Claro", "SCHARFF", "FLEET", "WODEN"];
+const navItems = ["Inicio", "Nosotros", "Servicios", "Cobertura", "Clientes", "Contacto"];
 
 const stats = [
-  { value: "+12", label: "Años", sub: "De experiencia", icon: Building2 },
-  { value: "+350", label: "Rutas diarias", sub: "A nivel nacional", icon: Route },
+  { value: "+7", label: "Años", sub: "De experiencia", icon: Building2 },
+  { value: "+150", label: "Rutas diarias", sub: "A nivel nacional", icon: Route },
   { value: "+98%", label: "Entregas", sub: "A tiempo", icon: PackageCheck },
-  { value: "+120", label: "Clientes corporativos", sub: "Confían en nosotros", icon: Users },
+  { value: "+100", label: "Clientes corporativos", sub: "Confían en nosotros", icon: Users },
 ];
 
 const coverage = [
@@ -257,15 +257,12 @@ const coverage = [
 
 function Logo({ compact = false }) {
   return (
-    <div className="flex items-center gap-3">
-      <div className="relative h-10 w-14 overflow-hidden rounded-full border border-white/70 bg-white/5">
-        <Truck className="absolute left-2 top-2 h-6 w-8 text-white" strokeWidth={1.8} />
-        <div className="absolute inset-x-2 bottom-2 h-px bg-white/60" />
-      </div>
-      <div className="leading-none">
-        <div className={`${compact ? "text-2xl" : "text-3xl"} font-black tracking-[0.18em] text-white`}>ZORIAM</div>
-        <div className="text-[10px] font-black tracking-[0.18em] text-red-500">LOGÍSTICA INTEGRADA</div>
-      </div>
+    <div className="flex items-center">
+      <img
+        src="/logo-zoriam.png"
+        alt="ZORIAM Logística Integrada"
+        className={compact ? "h-16 w-auto object-contain" : "h-20 w-auto object-contain"}
+      />
     </div>
   );
 }
