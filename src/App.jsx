@@ -271,69 +271,7 @@ function Button({ children, variant = "gold", className = "", ...props }) {
   const styles = variant === "gold" ? "bg-[#c79a45] text-[#07111d] hover:bg-[#d9ad5d] border-[#c79a45]" : "bg-transparent text-white hover:bg-white/10 border-white/25";
   return <button className={`inline-flex items-center justify-center gap-2 rounded border px-6 py-3 text-sm font-extrabold transition ${styles} ${className}`} {...props}>{children}</button>;
 }
-function PeruMapGraphic() {
-  return (
-    <svg
-      viewBox="0 0 300 430"
-      className="h-[340px] w-auto max-w-full"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      {/* Silueta estilizada del Perú */}
-      <path
-        d="M129 18
-        C151 27 170 35 187 51
-        C205 68 217 91 224 116
-        C231 143 243 169 253 193
-        C264 221 261 249 247 273
-        C234 296 216 313 203 337
-        C192 358 190 382 169 397
-        C151 410 128 398 109 403
-        C91 407 78 394 66 377
-        C53 358 41 340 38 316
-        C34 294 47 274 40 252
-        C33 229 43 205 55 185
-        C65 168 58 148 67 128
-        C75 109 91 98 96 78
-        C102 55 111 34 129 18Z"
-        fill="#c79a45"
-        fillOpacity="0.13"
-        stroke="#c79a45"
-        strokeWidth="3"
-      />
 
-      {/* Punto Lima / centro operativo */}
-      <circle cx="118" cy="223" r="7" fill="#c79a45" />
-
-      {/* Rutas nacionales */}
-      <path d="M118 223L199 87" stroke="#c79a45" strokeWidth="2.3" strokeOpacity="0.85" />
-      <path d="M118 223L237 151" stroke="#c79a45" strokeWidth="2.3" strokeOpacity="0.85" />
-      <path d="M118 223L253 225" stroke="#c79a45" strokeWidth="2.3" strokeOpacity="0.85" />
-      <path d="M118 223L221 322" stroke="#c79a45" strokeWidth="2.3" strokeOpacity="0.85" />
-      <path d="M118 223L155 387" stroke="#c79a45" strokeWidth="2.3" strokeOpacity="0.85" />
-
-      {/* Nodos */}
-      <circle cx="199" cy="87" r="5" fill="#c79a45" />
-      <circle cx="237" cy="151" r="5" fill="#c79a45" />
-      <circle cx="253" cy="225" r="5" fill="#c79a45" />
-      <circle cx="221" cy="322" r="5" fill="#c79a45" />
-      <circle cx="155" cy="387" r="5" fill="#c79a45" />
-
-      {/* Etiqueta discreta */}
-      <text
-        x="92"
-        y="248"
-        fill="#07111d"
-        fontSize="16"
-        fontWeight="800"
-        letterSpacing="1"
-      >
-        LIMA
-      </text>
-    </svg>
-  );
-}
 export default function ZoriamLandingPage() {
   const [tracking, setTracking] = useState("");
   const [trackingMessage, setTrackingMessage] = useState("");
