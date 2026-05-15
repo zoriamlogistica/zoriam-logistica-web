@@ -267,7 +267,11 @@ function Logo({ compact = false }) {
       <img
         src="/logo-zoriam.png"
         alt="ZORIAM Logística Integrada"
-        className={compact ? "h-16 w-auto object-contain" : "h-20 w-auto object-contain"}
+        className={
+          compact
+            ? "h-12 w-auto object-contain"
+            : "h-12 w-auto max-w-[210px] object-contain md:h-16 md:max-w-[260px]"
+        }
       />
     </div>
   );
@@ -361,8 +365,8 @@ export default function ZoriamLandingPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#07111d] via-transparent to-transparent" />
         <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-8 px-6 py-20 lg:grid-cols-[1fr_420px] lg:py-24">
           <div>
-            <h1 className="max-w-3xl text-4xl font-black uppercase leading-tight tracking-[0.08em] text-white md:text-6xl">Logística que conecta, controla <span className="block text-[#c79a45]">y entrega resultados.</span></h1>
-            <p className="mt-6 max-w-lg text-lg leading-8 text-white/90">Operaciones logísticas integrales con tecnología, trazabilidad y cumplimiento para empresas que no pueden detenerse.</p>
+            <h1 className="max-w-3xl text-3xl font-black uppercase leading-tight tracking-[0.06em] text-white sm:text-4xl md:text-6xl">Logística que conecta, controla <span className="block text-[#c79a45]">y entrega resultados.</span></h1>
+          <p className="mt-5 max-w-lg text-base leading-7 text-white/90 md:text-lg md:leading-8">Operaciones logísticas integrales con tecnología, trazabilidad y cumplimiento para empresas que no pueden detenerse.</p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <a href="https://wa.me/51941822841" target="_blank" rel="noreferrer"><Button className="w-full sm:w-auto"><MessageCircle className="h-4 w-4" /> Cotizar Ahora <ArrowRight className="h-4 w-4" /></Button></a>
               <a href="https://wa.me/51941822841" target="_blank" rel="noreferrer"><Button variant="outline" className="w-full sm:w-auto"><MessageCircle className="h-4 w-4" /> WhatsApp </Button></a>
@@ -406,12 +410,12 @@ export default function ZoriamLandingPage() {
 
       <section id="servicios" className="mx-auto max-w-7xl px-6 py-16">
         <div className="mb-8 flex flex-col justify-between gap-6 md:flex-row md:items-end"><div><div className="mb-3 text-xs font-black uppercase tracking-widest text-[#c79a45]">Nuestros servicios</div><h2 className="max-w-xl text-3xl font-black leading-tight md:text-4xl">Soluciones logísticas diseñadas para operaciones exigentes.</h2></div><a href="#contacto"><Button variant="outline">Ver todos los servicios <ArrowRight className="h-4 w-4" /></Button></a></div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-6">{services.map(({ title, desc, icon: Icon, image }) => (<article key={title} className="group overflow-hidden rounded border border-white/12 bg-white/[0.03]"><div className="relative h-28 overflow-hidden"><img src={image} alt={title} className="h-full w-full object-cover opacity-70 transition duration-500 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-[#07111d] to-transparent" /></div><div className="p-4"><Icon className="mb-4 h-7 w-7 text-[#c79a45]" strokeWidth={1.8} /><h3 className="min-h-[48px] text-lg font-black leading-tight">{title}</h3><p className="mt-3 text-sm leading-6 text-white/75">{desc}</p></div></article>))}</div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-6">{services.map(({ title, desc, icon: Icon, image }) => (<article key={title} className="group overflow-hidden rounded border border-white/12 bg-white/[0.03]"><div className="relative h-40 overflow-hidden md:h-28"><img src={image} alt={title} className="h-full w-full object-cover opacity-70 transition duration-500 group-hover:scale-105" /><div className="absolute inset-0 bg-gradient-to-t from-[#07111d] to-transparent" /></div><div className="p-4"><Icon className="mb-4 h-7 w-7 text-[#c79a45]" strokeWidth={1.8} /><h3 className="min-h-[48px] text-lg font-black leading-tight">{title}</h3><p className="mt-3 text-base leading-7 text-white/75 md:text-sm md:leading-6">>{desc}</p></div></article>))}</div>
       </section>
 
       <section id="nosotros" className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="relative min-h-[410px] overflow-hidden px-6 py-16 lg:px-16"><div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1586528116493-a029325540fa?q=80&w=1800&auto=format&fit=crop')" }} /><div className="absolute inset-0 bg-gradient-to-r from-[#07111d]/98 via-[#07111d]/88 to-[#07111d]/72" />
-<div className="absolute inset-0 bg-black/25" /><div className="relative mx-auto max-w-xl lg:ml-auto">
+        <div className="relative min-h-[410px] overflow-hidden px-6 py-16 lg:px-16"><div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1586528116493-a029325540fa?q=80&w=1800&auto=format&fit=crop')" }} /><div className="absolute inset-0 bg-[#07111d]/82" />
+<div className="absolute inset-0 bg-gradient-to-b from-[#07111d]/40 via-transparent to-[#07111d]/70" /><div className="relative mx-auto max-w-xl lg:ml-auto">
   <div className="mb-3 text-sm font-black uppercase tracking-widest text-[#d8b36a] drop-shadow-[0_2px_8px_rgba(0,0,0,0.75)]">
     Infraestructura y capacidad
   </div>
@@ -455,8 +459,12 @@ export default function ZoriamLandingPage() {
   Ingresar al Libro <ExternalLink className="h-4 w-4" />
 </a></div></div><div className="mx-auto mt-10 flex max-w-7xl flex-col justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/45 md:flex-row"><p>© {currentYear} Zoriam Logística Integrada. Todos los derechos reservados.</p><p>Política de Privacidad | Términos y Condiciones</p></div></footer>
 
-      <a href="https://wa.me/51941822841" target="_blank" rel="noreferrer" className="fixed bottom-6 left-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl hover:bg-green-400"><MessageCircle className="h-8 w-8" /></a>
-      <a href="https://wa.me/51941822841" target="_blank" rel="noreferrer" className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl hover:bg-green-400"><MessageCircle className="h-8 w-8" /></a>
-    </main>
-  );
-}
+<a
+  href="https://wa.me/51941822841"
+  target="_blank"
+  rel="noreferrer"
+  aria-label="Contactar a ZORIAM por WhatsApp"
+  className="fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl hover:bg-green-400 md:bottom-6 md:right-6 md:h-14 md:w-14"
+>
+  <MessageCircle className="h-7 w-7 md:h-8 md:w-8" />
+</a>
