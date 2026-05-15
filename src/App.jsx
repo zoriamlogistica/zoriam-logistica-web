@@ -428,7 +428,13 @@ export default function ZoriamLandingPage() {
   </div>
 ))}</div><a href="#contacto" className="mt-8 inline-block"><Button variant="outline">Conoce más sobre nosotros <ArrowRight className="h-4 w-4" /></Button></a></div></div>
         <div id="cobertura" className="bg-[#f4f0e8] px-6 py-16 text-[#07111d] lg:px-16"><div className="mx-auto max-w-xl lg:mr-auto"><div className="mb-3 text-xs font-black uppercase tracking-widest text-[#07111d]/70">Cobertura Nacional</div><h2 className="text-3xl font-black leading-tight md:text-4xl">Llegamos donde tu negocio nos necesita.</h2><div className="mt-8 grid gap-10 md:grid-cols-[1.1fr_260px] md:items-center"><div className="relative flex min-h-[360px] items-center justify-center">
-  <PeruMapGraphic />
+  <img
+    src="/mapa-peru.png"
+    alt="Mapa de cobertura nacional en Perú"
+    className="h-[340px] w-auto object-contain opacity-90"
+  />
+
+  <div className="absolute left-1/2 top-1/2 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#c79a45] shadow-[0_0_0_8px_rgba(199,154,69,0.18)]" />
 </div><div className="space-y-6">{coverage.map(({ text, icon: Icon }) => (<div key={text} className="flex gap-4"><Icon className="h-6 w-6 shrink-0 text-[#07111d]" strokeWidth={1.7} /><p className="text-sm leading-6">{text}</p></div>))}<a href="#contacto" className="inline-flex items-center gap-3 font-semibold hover:text-[#c79a45]">Ver cobertura completa <ArrowRight className="h-4 w-4" /></a></div></div></div></div>
       </section>
 
