@@ -459,13 +459,15 @@ export default function ZoriamLandingPage() {
   Ingresar al Libro <ExternalLink className="h-4 w-4" />
 </a></div></div><div className="mx-auto mt-10 flex max-w-7xl flex-col justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/45 md:flex-row"><p>© {currentYear} Zoriam Logística Integrada. Todos los derechos reservados.</p><p>Política de Privacidad | Términos y Condiciones</p></div></footer>
 
-<a
-  href="https://wa.me/51941822841"
-  target="_blank"
-  rel="noreferrer"
-  aria-label="Contactar a ZORIAM por WhatsApp"
-  className="fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl hover:bg-green-400 md:bottom-6 md:right-6 md:h-14 md:w-14"
->
-  <MessageCircle className="h-7 w-7 md:h-8 md:w-8" />
-</a>
-</main> ); }
+      <a
+        href="https://wa.me/51941822841"
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Contactar a ZORIAM por WhatsApp"
+        className="fixed bottom-5 right-5 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-green-500 text-white shadow-2xl transition hover:bg-green-400 md:bottom-6 md:right-6 md:h-14 md:w-14"
+      >
+        <MessageCircle className="h-7 w-7 md:h-8 md:w-8" />
+      </a>
+    </main>
+  );
+}
