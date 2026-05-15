@@ -274,33 +274,63 @@ function Button({ children, variant = "gold", className = "", ...props }) {
 function PeruMapGraphic() {
   return (
     <svg
-      viewBox="0 0 320 420"
-      className="h-[320px] w-auto"
+      viewBox="0 0 300 430"
+      className="h-[340px] w-auto max-w-full"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
+      {/* Silueta estilizada del Perú */}
       <path
-        d="M122 18L174 32L206 61L226 93L238 138L257 188L254 231L242 274L223 309L198 338L182 373L148 401L124 390L98 396L76 370L58 345L46 314L52 280L40 250L46 219L61 190L52 161L66 133L81 112L88 82L104 57L122 18Z"
+        d="M129 18
+        C151 27 170 35 187 51
+        C205 68 217 91 224 116
+        C231 143 243 169 253 193
+        C264 221 261 249 247 273
+        C234 296 216 313 203 337
+        C192 358 190 382 169 397
+        C151 410 128 398 109 403
+        C91 407 78 394 66 377
+        C53 358 41 340 38 316
+        C34 294 47 274 40 252
+        C33 229 43 205 55 185
+        C65 168 58 148 67 128
+        C75 109 91 98 96 78
+        C102 55 111 34 129 18Z"
         fill="#c79a45"
-        fillOpacity="0.10"
+        fillOpacity="0.13"
         stroke="#c79a45"
-        strokeWidth="2"
+        strokeWidth="3"
       />
 
-      <circle cx="126" cy="205" r="5" fill="#c79a45" />
+      {/* Punto Lima / centro operativo */}
+      <circle cx="118" cy="223" r="7" fill="#c79a45" />
 
-      <path d="M126 205L225 95" stroke="#c79a45" strokeWidth="2" strokeOpacity="0.8" />
-      <path d="M126 205L246 150" stroke="#c79a45" strokeWidth="2" strokeOpacity="0.8" />
-      <path d="M126 205L255 235" stroke="#c79a45" strokeWidth="2" strokeOpacity="0.8" />
-      <path d="M126 205L230 315" stroke="#c79a45" strokeWidth="2" strokeOpacity="0.8" />
-      <path d="M126 205L188 365" stroke="#c79a45" strokeWidth="2" strokeOpacity="0.8" />
+      {/* Rutas nacionales */}
+      <path d="M118 223L199 87" stroke="#c79a45" strokeWidth="2.3" strokeOpacity="0.85" />
+      <path d="M118 223L237 151" stroke="#c79a45" strokeWidth="2.3" strokeOpacity="0.85" />
+      <path d="M118 223L253 225" stroke="#c79a45" strokeWidth="2.3" strokeOpacity="0.85" />
+      <path d="M118 223L221 322" stroke="#c79a45" strokeWidth="2.3" strokeOpacity="0.85" />
+      <path d="M118 223L155 387" stroke="#c79a45" strokeWidth="2.3" strokeOpacity="0.85" />
 
-      <circle cx="225" cy="95" r="4" fill="#c79a45" />
-      <circle cx="246" cy="150" r="4" fill="#c79a45" />
-      <circle cx="255" cy="235" r="4" fill="#c79a45" />
-      <circle cx="230" cy="315" r="4" fill="#c79a45" />
-      <circle cx="188" cy="365" r="4" fill="#c79a45" />
+      {/* Nodos */}
+      <circle cx="199" cy="87" r="5" fill="#c79a45" />
+      <circle cx="237" cy="151" r="5" fill="#c79a45" />
+      <circle cx="253" cy="225" r="5" fill="#c79a45" />
+      <circle cx="221" cy="322" r="5" fill="#c79a45" />
+      <circle cx="155" cy="387" r="5" fill="#c79a45" />
+
+      {/* Etiqueta discreta */}
+      <text
+        x="92"
+        y="248"
+        fill="#07111d"
+        fontSize="16"
+        fontWeight="800"
+        letterSpacing="1"
+      >
+        LIMA
+      </text>
     </svg>
   );
 }
@@ -436,7 +466,8 @@ export default function ZoriamLandingPage() {
       </section>
 
       <section id="nosotros" className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="relative min-h-[410px] overflow-hidden px-6 py-16 lg:px-16"><div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1586528116493-a029325540fa?q=80&w=1800&auto=format&fit=crop')" }} /><div className="absolute inset-0 bg-[#07111d]/92 via-[#07111d]/78 to-[#07111d]/55" /><div className="relative mx-auto max-w-xl lg:ml-auto">
+        <div className="relative min-h-[410px] overflow-hidden px-6 py-16 lg:px-16"><div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1586528116493-a029325540fa?q=80&w=1800&auto=format&fit=crop')" }} /><div className="absolute inset-0 bg-gradient-to-r from-[#07111d]/98 via-[#07111d]/88 to-[#07111d]/72" />
+<div className="absolute inset-0 bg-black/25" /><div className="relative mx-auto max-w-xl lg:ml-auto">
   <div className="mb-3 text-sm font-black uppercase tracking-widest text-[#d8b36a] drop-shadow-[0_2px_8px_rgba(0,0,0,0.75)]">
     Infraestructura y capacidad
   </div>
@@ -458,7 +489,7 @@ export default function ZoriamLandingPage() {
     </span>
   </div>
 ))}</div><a href="#contacto" className="mt-8 inline-block"><Button variant="outline">Conoce más sobre nosotros <ArrowRight className="h-4 w-4" /></Button></a></div></div>
-        <div id="cobertura" className="bg-[#f4f0e8] px-6 py-16 text-[#07111d] lg:px-16"><div className="mx-auto max-w-xl lg:mr-auto"><div className="mb-3 text-xs font-black uppercase tracking-widest text-[#07111d]/70">Cobertura Nacional</div><h2 className="text-3xl font-black leading-tight md:text-4xl">Llegamos donde tu negocio nos necesita.</h2><div className="mt-8 grid gap-8 md:grid-cols-[1fr_240px]"><div className="relative flex min-h-[320px] items-center justify-center">
+        <div id="cobertura" className="bg-[#f4f0e8] px-6 py-16 text-[#07111d] lg:px-16"><div className="mx-auto max-w-xl lg:mr-auto"><div className="mb-3 text-xs font-black uppercase tracking-widest text-[#07111d]/70">Cobertura Nacional</div><h2 className="text-3xl font-black leading-tight md:text-4xl">Llegamos donde tu negocio nos necesita.</h2><div className="mt-8 grid gap-10 md:grid-cols-[1.1fr_260px] md:items-center"><div className="relative flex min-h-[360px] items-center justify-center">
   <PeruMapGraphic />
 </div><div className="space-y-6">{coverage.map(({ text, icon: Icon }) => (<div key={text} className="flex gap-4"><Icon className="h-6 w-6 shrink-0 text-[#07111d]" strokeWidth={1.7} /><p className="text-sm leading-6">{text}</p></div>))}<a href="#contacto" className="inline-flex items-center gap-3 font-semibold hover:text-[#c79a45]">Ver cobertura completa <ArrowRight className="h-4 w-4" /></a></div></div></div></div>
       </section>
