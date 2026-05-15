@@ -271,7 +271,39 @@ function Button({ children, variant = "gold", className = "", ...props }) {
   const styles = variant === "gold" ? "bg-[#c79a45] text-[#07111d] hover:bg-[#d9ad5d] border-[#c79a45]" : "bg-transparent text-white hover:bg-white/10 border-white/25";
   return <button className={`inline-flex items-center justify-center gap-2 rounded border px-6 py-3 text-sm font-extrabold transition ${styles} ${className}`} {...props}>{children}</button>;
 }
+function PeruMapGraphic() {
+  return (
+    <svg
+      viewBox="0 0 320 420"
+      className="h-[320px] w-auto"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <path
+        d="M122 18L174 32L206 61L226 93L238 138L257 188L254 231L242 274L223 309L198 338L182 373L148 401L124 390L98 396L76 370L58 345L46 314L52 280L40 250L46 219L61 190L52 161L66 133L81 112L88 82L104 57L122 18Z"
+        fill="#c79a45"
+        fillOpacity="0.10"
+        stroke="#c79a45"
+        strokeWidth="2"
+      />
 
+      <circle cx="126" cy="205" r="5" fill="#c79a45" />
+
+      <path d="M126 205L225 95" stroke="#c79a45" strokeWidth="2" strokeOpacity="0.8" />
+      <path d="M126 205L246 150" stroke="#c79a45" strokeWidth="2" strokeOpacity="0.8" />
+      <path d="M126 205L255 235" stroke="#c79a45" strokeWidth="2" strokeOpacity="0.8" />
+      <path d="M126 205L230 315" stroke="#c79a45" strokeWidth="2" strokeOpacity="0.8" />
+      <path d="M126 205L188 365" stroke="#c79a45" strokeWidth="2" strokeOpacity="0.8" />
+
+      <circle cx="225" cy="95" r="4" fill="#c79a45" />
+      <circle cx="246" cy="150" r="4" fill="#c79a45" />
+      <circle cx="255" cy="235" r="4" fill="#c79a45" />
+      <circle cx="230" cy="315" r="4" fill="#c79a45" />
+      <circle cx="188" cy="365" r="4" fill="#c79a45" />
+    </svg>
+  );
+}
 export default function ZoriamLandingPage() {
   const [tracking, setTracking] = useState("");
   const [trackingMessage, setTrackingMessage] = useState("");
@@ -404,8 +436,31 @@ export default function ZoriamLandingPage() {
       </section>
 
       <section id="nosotros" className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="relative min-h-[410px] overflow-hidden px-6 py-16 lg:px-16"><div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1586528116493-a029325540fa?q=80&w=1800&auto=format&fit=crop')" }} /><div className="absolute inset-0 bg-[#07111d]/78" /><div className="relative mx-auto max-w-xl lg:ml-auto"><div className="mb-3 text-xs font-black uppercase tracking-widest text-[#c79a45]">Infraestructura y capacidad</div><h2 className="text-3xl font-black leading-tight md:text-4xl">Operamos con infraestructura de alto nivel para garantizar continuidad y seguridad.</h2><div className="mt-8 space-y-5 text-white/90">{["Almacenes estratégicos en puntos clave", "Flota moderna y monitoreada", "Protocolos de seguridad y calidad certificados", "Personal capacitado y procesos estandarizados"].map((item) => (<div key={item} className="flex gap-4"><CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#c79a45]" /><span>{item}</span></div>))}</div><a href="#contacto" className="mt-8 inline-block"><Button variant="outline">Conoce más sobre nosotros <ArrowRight className="h-4 w-4" /></Button></a></div></div>
-        <div id="cobertura" className="bg-[#f4f0e8] px-6 py-16 text-[#07111d] lg:px-16"><div className="mx-auto max-w-xl lg:mr-auto"><div className="mb-3 text-xs font-black uppercase tracking-widest text-[#07111d]/70">Cobertura Nacional</div><h2 className="text-3xl font-black leading-tight md:text-4xl">Llegamos donde tu negocio nos necesita.</h2><div className="mt-8 grid gap-8 md:grid-cols-[1fr_240px]"><div className="relative flex min-h-[240px] items-center justify-center"><div className="h-64 w-48 rotate-[-10deg] rounded-[45%_35%_55%_40%] border border-[#c79a45]/50 bg-[#c79a45]/10 shadow-inner" />{[20, 35, 52, 68].map((top, i) => (<div key={top} className="absolute left-[28%] h-px origin-left bg-[#c79a45]/60" style={{ top: `${top}%`, width: `${150 + i * 20}px`, transform: `rotate(${[-18, -6, 9, 23][i]}deg)` }} />))}</div><div className="space-y-6">{coverage.map(({ text, icon: Icon }) => (<div key={text} className="flex gap-4"><Icon className="h-6 w-6 shrink-0 text-[#07111d]" strokeWidth={1.7} /><p className="text-sm leading-6">{text}</p></div>))}<a href="#contacto" className="inline-flex items-center gap-3 font-semibold hover:text-[#c79a45]">Ver cobertura completa <ArrowRight className="h-4 w-4" /></a></div></div></div></div>
+        <div className="relative min-h-[410px] overflow-hidden px-6 py-16 lg:px-16"><div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1586528116493-a029325540fa?q=80&w=1800&auto=format&fit=crop')" }} /><div className="absolute inset-0 bg-[#07111d]/92 via-[#07111d]/78 to-[#07111d]/55" /><div className="relative mx-auto max-w-xl lg:ml-auto">
+  <div className="mb-3 text-sm font-black uppercase tracking-widest text-[#d8b36a] drop-shadow-[0_2px_8px_rgba(0,0,0,0.75)]">
+    Infraestructura y capacidad
+  </div>
+
+  <h2 className="text-3xl font-black leading-tight text-white drop-shadow-[0_3px_10px_rgba(0,0,0,0.9)] md:text-4xl">
+    Operamos con infraestructura de alto nivel para garantizar continuidad y seguridad.
+  </h2>
+
+  <div className="mt-8 space-y-5 text-white/95">{[
+  "Almacenes estratégicos en puntos clave",
+  "Flota moderna y monitoreada",
+  "Protocolos de seguridad y calidad certificados",
+  "Personal capacitado y procesos estandarizados",
+].map((item) => (
+  <div key={item} className="flex gap-4">
+    <CheckCircle2 className="mt-1 h-5 w-5 shrink-0 text-[#d8b36a]" />
+    <span className="text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+      {item}
+    </span>
+  </div>
+))}</div><a href="#contacto" className="mt-8 inline-block"><Button variant="outline">Conoce más sobre nosotros <ArrowRight className="h-4 w-4" /></Button></a></div></div>
+        <div id="cobertura" className="bg-[#f4f0e8] px-6 py-16 text-[#07111d] lg:px-16"><div className="mx-auto max-w-xl lg:mr-auto"><div className="mb-3 text-xs font-black uppercase tracking-widest text-[#07111d]/70">Cobertura Nacional</div><h2 className="text-3xl font-black leading-tight md:text-4xl">Llegamos donde tu negocio nos necesita.</h2><div className="mt-8 grid gap-8 md:grid-cols-[1fr_240px]"><div className="relative flex min-h-[320px] items-center justify-center">
+  <PeruMapGraphic />
+</div><div className="space-y-6">{coverage.map(({ text, icon: Icon }) => (<div key={text} className="flex gap-4"><Icon className="h-6 w-6 shrink-0 text-[#07111d]" strokeWidth={1.7} /><p className="text-sm leading-6">{text}</p></div>))}<a href="#contacto" className="inline-flex items-center gap-3 font-semibold hover:text-[#c79a45]">Ver cobertura completa <ArrowRight className="h-4 w-4" /></a></div></div></div></div>
       </section>
 
       <section id="tecnologia" className="border-y border-white/10 bg-[#07111d]"><div className="mx-auto grid max-w-7xl gap-8 px-6 py-10 lg:grid-cols-[340px_1fr] lg:items-center"><div><div className="mb-3 text-xs font-black uppercase tracking-widest text-[#c79a45]">Empresas que confían en Zoriam</div><h2 className="text-3xl font-black leading-tight">Alianzas que nos impulsan a seguir entregando lo mejor.</h2></div><div className="grid grid-cols-2 gap-4 md:grid-cols-5">{clients.map((client) => (<div key={client} className="flex h-16 items-center justify-center rounded border border-white/12 bg-white/[0.03] px-4 text-xl font-black tracking-wide text-white/75">{client}</div>))}</div></div></section>
