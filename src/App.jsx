@@ -1,9 +1,23 @@
 import React, { useMemo, useState } from "react";
 
+const TRACKING_API_URL = "https://script.google.com/macros/s/AKfycbzpR6QvKfxXcmIpvY3PCycwm1ht20vGFYF_GPC9IWs-b3Fl-sX6CS3eG8ytpSe3ABaD/exec";
+
 export function createTrackingMessage(value) {
   const trimmed = String(value || "").trim();
-  if (!trimmed) return "Ingresa un número de guía para consultar el estado.";
-  return `Guía ${trimmed}: módulo de rastreo listo para conectar con tu base de datos.`;
+
+  if (!trimmed) {
+    return {
+      type: "warning",
+      title: "Número de pedido requerido",
+      message: "Ingresa un número de pedido o guía para realizar la consulta.",
+    };
+  }
+
+  return {
+    type: "not-found",
+    title: "Pedido no encontrado",
+    message: `No encontramos información asociada al número ${trimmed}. Verifica el código ingresado o comunícate con ZORIAM para validar el estado de tu envío.`,
+  };
 }
 
 export function getSectionId(label) {
@@ -224,14 +238,14 @@ const services = [
   { title: "Almacenaje y Cross Docking", desc: "Almacenamiento seguro y distribución eficiente para tu cadena de suministro.", icon: Warehouse, image: "https://images.unsplash.com/photo-1586528116493-a029325540fa?q=80&w=1200&auto=format&fit=crop" },
 ];
 
-const clients = ["entel", "Claro", "SHARF", "FLEET", "WODEN"];
+const clients = ["entel", "Claro", "SCHARFF", "BrightCell", "BELCORP"];
 const navItems = ["Inicio", "Nosotros", "Servicios", "Cobertura", "Tecnología", "Contacto"];
 
 const stats = [
-  { value: "+7", label: "Años", sub: "De experiencia", icon: Building2 },
-  { value: "+50", label: "Rutas diarias", sub: "A nivel nacional", icon: Route },
+  { value: "+12", label: "Años", sub: "De experiencia", icon: Building2 },
+  { value: "+350", label: "Rutas diarias", sub: "A nivel nacional", icon: Route },
   { value: "+98%", label: "Entregas", sub: "A tiempo", icon: PackageCheck },
-  { value: "+100", label: "Clientes corporativos", sub: "Confían en nosotros", icon: Users },
+  { value: "+120", label: "Clientes corporativos", sub: "Confían en nosotros", icon: Users },
 ];
 
 const coverage = [
@@ -243,12 +257,15 @@ const coverage = [
 
 function Logo({ compact = false }) {
   return (
-    <div className="flex items-center">
-      <img
-        src="/logo-zoriam.png"
-        alt="ZORIAM Logística Integrada"
-        className={compact ? "h-12 w-auto object-contain" : "h-14 w-auto object-contain"}
-      />
+    <div className="flex items-center gap-3">
+      <div className="relative h-10 w-14 overflow-hidden rounded-full border border-white/70 bg-white/5">
+        <Truck className="absolute left-2 top-2 h-6 w-8 text-white" strokeWidth={1.8} />
+        <div className="absolute inset-x-2 bottom-2 h-px bg-white/60" />
+      </div>
+      <div className="leading-none">
+        <div className={`${compact ? "text-2xl" : "text-3xl"} font-black tracking-[0.18em] text-white`}>ZORIAM</div>
+        <div className="text-[10px] font-black tracking-[0.18em] text-red-500">LOGÍSTICA INTEGRADA</div>
+      </div>
     </div>
   );
 }
@@ -261,7 +278,62 @@ function Button({ children, variant = "gold", className = "", ...props }) {
 export default function ZoriamLandingPage() {
   const [tracking, setTracking] = useState("");
   const [trackingMessage, setTrackingMessage] = useState("");
+  const [isTrackingLoading, setIsTrackingLoading] = useState(false);
   const currentYear = useMemo(() => new Date().getFullYear(), []);
+
+  const searchTracking = async () => {
+    const pedido = tracking.trim();
+
+    if (!pedido) {
+      setTrackingMessage(createTrackingMessage(pedido));
+      return;
+    }
+
+    setIsTrackingLoading(true);
+    setTrackingMessage({
+      type: "loading",
+      title: "Consultando pedido",
+      message: "Estamos validando la información del envío...",
+    });
+
+    try {
+      const response = await fetch(`${TRACKING_API_URL}?pedido=${encodeURIComponent(pedido)}`);
+
+      if (!response.ok) {
+        throw new Error("Tracking API error");
+      }
+
+      const data = await response.json();
+
+      if (!data.found) {
+        setTrackingMessage({
+          type: "not-found",
+          title: "Pedido no encontrado",
+          message: data.message || `No encontramos información asociada al número ${pedido}.`,
+        });
+        return;
+      }
+
+      const details = [
+        data.detalle ? `Detalle: ${data.detalle}` : "",
+        data.fecha ? `Fecha de actualización: ${data.fecha}` : "",
+      ].filter(Boolean);
+
+      setTrackingMessage({
+        type: "success",
+        title: `Estado del pedido: ${data.estado || "Registrado"}`,
+        message: details.length ? details.join(" | ") : "El pedido fue encontrado en el sistema de tracking.",
+      });
+    } catch (error) {
+      setTrackingMessage({
+        type: "error",
+        title: "No se pudo consultar el tracking",
+        message: "Hubo un problema temporal al consultar el estado del pedido. Intenta nuevamente en unos minutos.",
+      });
+    } finally {
+      setIsTrackingLoading(false);
+    }
+  };
 
   return (
     <main className="min-h-screen bg-[#07111d] font-sans text-white">
@@ -290,7 +362,7 @@ export default function ZoriamLandingPage() {
             <p className="mt-6 max-w-lg text-lg leading-8 text-white/90">Operaciones logísticas integrales con tecnología, trazabilidad y cumplimiento para empresas que no pueden detenerse.</p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <a href="https://wa.me/51941822841" target="_blank" rel="noreferrer"><Button className="w-full sm:w-auto"><MessageCircle className="h-4 w-4" /> Cotizar Ahora <ArrowRight className="h-4 w-4" /></Button></a>
-              <a href="https://wa.me/51941822841" target="_blank" rel="noreferrer"><Button variant="outline" className="w-full sm:w-auto"><MessageCircle className="h-4 w-4" /> WhatsApp </Button></a>
+              <a href="https://wa.me/51941822841" target="_blank" rel="noreferrer"><Button variant="outline" className="w-full sm:w-auto"><MessageCircle className="h-4 w-4" /> WhatsApp 941 822 841</Button></a>
             </div>
             <div className="mt-14 grid max-w-3xl grid-cols-2 gap-6 md:grid-cols-4">
               {[[ShieldCheck, "Seguridad", "Garantizada"], [MapPin, "Cobertura", "Nacional"], [BarChart3, "Trazabilidad", "en Tiempo Real"], [CheckCircle2, "Cumplimiento", "y Control"]].map(([Icon, a, b]) => (
@@ -302,10 +374,27 @@ export default function ZoriamLandingPage() {
             <h2 className="text-lg font-black uppercase tracking-widest text-[#c79a45]">RASTREA TU ENVÍO</h2>
             <div className="mt-5 flex gap-1">
               <input value={tracking} onChange={(event) => setTracking(event.target.value)} className="min-w-0 flex-1 rounded border border-white/15 bg-[#07111d] px-4 py-3 text-sm text-white outline-none placeholder:text-white/45 focus:border-[#c79a45]" placeholder="Ingresa tu número de guía" />
-              <button onClick={() => setTrackingMessage(createTrackingMessage(tracking))} className="rounded bg-[#c79a45] px-5 py-3 text-sm font-black text-[#07111d]">Rastrear</button>
+              <button onClick={searchTracking} disabled={isTrackingLoading} className="rounded bg-[#c79a45] px-5 py-3 text-sm font-black text-[#07111d] disabled:cursor-not-allowed disabled:opacity-70">{isTrackingLoading ? "Buscando..." : "Rastrear"}</button>
             </div>
-            <button onClick={() => setTrackingMessage("Aquí irá la explicación del tracking cuando conectes el backend.")} className="mt-4 inline-flex items-center gap-2 text-sm font-bold underline text-white/80 hover:text-[#c79a45]">¿Cómo funciona el tracking? <ArrowRight className="h-4 w-4" /></button>
-            {trackingMessage && <p className="mt-4 rounded border border-[#c79a45]/30 bg-[#c79a45]/10 p-3 text-sm text-white/90">{trackingMessage}</p>}
+            <button
+              onClick={() =>
+                setTrackingMessage({
+                  type: "info",
+                  title: "Consulta de tracking",
+                  message:
+                    "Ingresa tu número de pedido o guía. El sistema validará si existe información registrada. Próximamente se conectará con una base de datos o Google Sheets para mostrar el estado real del envío.",
+                })
+              }
+              className="mt-4 inline-flex items-center gap-2 text-sm font-bold underline text-white/80 hover:text-[#c79a45]"
+            >
+              ¿Cómo funciona el tracking? <ArrowRight className="h-4 w-4" />
+            </button>
+            {trackingMessage && (
+              <div className="mt-4 rounded border border-[#c79a45]/30 bg-[#c79a45]/10 p-4 text-sm text-white/90">
+                <div className="mb-1 font-black text-[#c79a45]">{trackingMessage.title}</div>
+                <p className="leading-6">{trackingMessage.message}</p>
+              </div>
+            )}
           </div>
         </div>
       </section>
