@@ -234,7 +234,13 @@ const services = [
   { title: "Distribución Nacional", desc: "Cobertura a nivel nacional con rutas optimizadas y entregas eficientes.", icon: Route, image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop" },
   { title: "Logística Inversa", desc: "Gestión de devoluciones, recupero y equipos con trazabilidad completa.", icon: PackageCheck, image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?q=80&w=1200&auto=format&fit=crop" },
   { title: "Trazabilidad y Control", desc: "Monitoreo en tiempo real de tus envíos con reportes e indicadores.", icon: BarChart3, image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop" },
-  { title: "Operaciones Críticas", desc: "Soluciones especializadas para operaciones sensibles de alto valor.", icon: ClipboardCheck, image: "https://images.unsplash.com/photo-1581091215367-59ab6b1f17a1?q=80&w=1200&auto=format&fit=crop" },
+  {
+  title: "Operaciones Críticas",
+  desc: "Soluciones especializadas para operaciones sensibles de alto valor.",
+  icon: ClipboardCheck,
+  image:
+    "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=1200&auto=format&fit=crop",
+},
   { title: "Almacenaje y Cross Docking", desc: "Almacenamiento seguro y distribución eficiente para tu cadena de suministro.", icon: Warehouse, image: "https://images.unsplash.com/photo-1586528116493-a029325540fa?q=80&w=1200&auto=format&fit=crop" },
 ];
 
