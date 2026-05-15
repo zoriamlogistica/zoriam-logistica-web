@@ -468,3 +468,4 @@ export default function ZoriamLandingPage() {
 >
   <MessageCircle className="h-7 w-7 md:h-8 md:w-8" />
 </a>
+</main> ); }
