@@ -239,7 +239,7 @@ const services = [
 ];
 
 const clients = ["entel", "Claro", "SCHARFF", "FLEET", "WODEN"];
-const navItems = ["Inicio", "Nosotros", "Servicios", "Cobertura", "Clientes", "Contacto"];
+const navItems = ["Inicio", "Nosotros", "Servicios", "Cobertura", "Tecnologia", "Contacto"];
 
 const stats = [
   { value: "+7", label: "Años", sub: "De experiencia", icon: Building2 },
@@ -359,7 +359,7 @@ export default function ZoriamLandingPage() {
             <p className="mt-6 max-w-lg text-lg leading-8 text-white/90">Operaciones logísticas integrales con tecnología, trazabilidad y cumplimiento para empresas que no pueden detenerse.</p>
             <div className="mt-9 flex flex-col gap-4 sm:flex-row">
               <a href="https://wa.me/51941822841" target="_blank" rel="noreferrer"><Button className="w-full sm:w-auto"><MessageCircle className="h-4 w-4" /> Cotizar Ahora <ArrowRight className="h-4 w-4" /></Button></a>
-              <a href="https://wa.me/51941822841" target="_blank" rel="noreferrer"><Button variant="outline" className="w-full sm:w-auto"><MessageCircle className="h-4 w-4" /> WhatsApp 941 822 841</Button></a>
+              <a href="https://wa.me/51941822841" target="_blank" rel="noreferrer"><Button variant="outline" className="w-full sm:w-auto"><MessageCircle className="h-4 w-4" /> WhatsApp </Button></a>
             </div>
             <div className="mt-14 grid max-w-3xl grid-cols-2 gap-6 md:grid-cols-4">
               {[[ShieldCheck, "Seguridad", "Garantizada"], [MapPin, "Cobertura", "Nacional"], [BarChart3, "Trazabilidad", "en Tiempo Real"], [CheckCircle2, "Cumplimiento", "y Control"]].map(([Icon, a, b]) => (
@@ -370,7 +370,7 @@ export default function ZoriamLandingPage() {
           <div className="self-end rounded-lg border border-white/10 bg-[#07111d]/85 p-5 shadow-2xl backdrop-blur">
             <h2 className="text-lg font-black uppercase tracking-widest text-[#c79a45]">RASTREA TU ENVÍO</h2>
             <div className="mt-5 flex gap-1">
-              <input value={tracking} onChange={(event) => setTracking(event.target.value)} className="min-w-0 flex-1 rounded border border-white/15 bg-[#07111d] px-4 py-3 text-sm text-white outline-none placeholder:text-white/45 focus:border-[#c79a45]" placeholder="Ingresa tu número de guía" />
+              <input value={tracking} onChange={(event) => setTracking(event.target.value)} className="min-w-0 flex-1 rounded border border-white/15 bg-[#07111d] px-4 py-3 text-sm text-white outline-none placeholder:text-white/45 focus:border-[#c79a45]" placeholder="Ingresa tu número de guía o pedido" />
               <button onClick={searchTracking} disabled={isTrackingLoading} className="rounded bg-[#c79a45] px-5 py-3 text-sm font-black text-[#07111d] disabled:cursor-not-allowed disabled:opacity-70">{isTrackingLoading ? "Buscando..." : "Rastrear"}</button>
             </div>
             <button
