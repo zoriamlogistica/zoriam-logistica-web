@@ -459,6 +459,11 @@ export default function ZoriamLandingPage() {
   Ingresar al Libro <ExternalLink className="h-4 w-4" />
 </a></div></div><div className="mx-auto mt-10 flex max-w-7xl flex-col justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/45 md:flex-row"><p>© {currentYear} Zoriam Logística Integrada. Todos los derechos reservados.</p><p>Política de Privacidad | Términos y Condiciones</p></div></footer>
 
+export default function App() {
+  return (
+    <main className="min-h-screen bg-white text-slate-950">
+      {/* aquí va todo el contenido de tu web */}
+
       <a
         href="https://wa.me/51941822841"
         target="_blank"
